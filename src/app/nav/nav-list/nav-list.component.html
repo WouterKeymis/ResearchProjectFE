@@ -1,0 +1,28 @@
+<mat-drawer-container class="sidenav-container mat-typography" autosize>
+  <mat-drawer mode="side" [opened]="true">
+
+    <mat-nav-list #navList>
+
+      <mat-list-item *ngFor="let item of navItems" #tooltip="matTooltip" matTooltip="{{item.tooltip}}">
+        <a *ngIf="item && !item.isExternal"
+          [routerLink]="item.link"
+          [routerLinkActive]="'text-kn-light-blue'"
+          class="nav-item">
+          <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+          <span *ngIf="isExpanded">{{item.title}}</span>
+        </a>
+        <a *ngIf="item && item.isExternal"
+          (click)="goToLink(item.link)"
+          class="nav-item">
+          <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+          <span *ngIf="isExpanded">{{item.title}}</span>
+       </a>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-drawer>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
+

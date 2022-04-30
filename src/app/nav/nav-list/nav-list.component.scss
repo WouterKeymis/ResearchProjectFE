@@ -1,0 +1,19 @@
+.sidenav-container {
+  height: calc(100% - 64px);
+}
+
+.nav-item {
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.bNavRelative {
+  position: relative;
+}
+
+.bNavAbsolute {
+  position:absolute;
+  bottom:0;
+}

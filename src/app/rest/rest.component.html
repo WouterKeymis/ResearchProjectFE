@@ -1,0 +1,19 @@
+<p>rest</p>
+<ul>
+  <li *ngFor="let person of persons">
+    {{person.firstName}} {{person.lastName}} <span><button mat-button color="primary" (click)="showDetails(person.id)">details</button></span> <span *ngIf="person == selectedPerson">Age: {{selectedPerson.age}}</span>
+  </li>
+</ul>
+
+<div>
+  <h3>Addresses for <span  *ngIf="selectedPerson">{{selectedPerson.firstName}}</span></h3>
+  <div *ngFor="let address of addresses">
+    <p>{{address.streetName}} {{address.houseNumber}}</p>
+    <p>{{address.postCode}} {{address.city}}</p>
+  </div>
+
+  <h3>Pets for <span  *ngIf="selectedPerson">{{selectedPerson.firstName}}</span></h3>
+  <div *ngFor="let pet of pets">
+    <p>{{ pet.name }} : {{ pet.animalType }}
+  </div>
+</div>
