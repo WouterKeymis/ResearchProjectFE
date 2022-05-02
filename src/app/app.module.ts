@@ -13,6 +13,7 @@ import { AppSharedModule } from './shared/app.shared.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphQLModule } from './graphql.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GraphQLModule } from './graphql.module';
     BrowserAnimationsModule,
     NgbModule,
     AppSharedModule.forRoot(),
-    GraphQLModule
+    GraphQLModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

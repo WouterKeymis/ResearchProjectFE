@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { Address } from "../_models/address";
 import { Person } from "../_models/person";
 import { Pet } from "../_models/pet";
+import { Vet } from "../_models/vet";
 
 
 @Injectable({ providedIn: 'root'})
@@ -22,6 +23,10 @@ export class RestService {
 
   getPets(personId: number): Observable<Pet[]> {
     return this.httpClient.get<Pet[]>(this.baseUrl + 'Persons/Pets/' + personId)
+  }
+
+  getVetForPet(vetId: number): Observable<Vet[]> {
+    return this.httpClient.get<Vet[]>(this.baseUrl + 'Vets/' + vetId)
   }
 
 

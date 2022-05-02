@@ -9,7 +9,7 @@ export class GraphQlService {
 
   private getPersonsQuery = gql`
   query{
-    person{
+    persons{
       id,
       firstName,
       lastName
@@ -18,8 +18,37 @@ export class GraphQlService {
   `;
 
   getAllPersons() {
+    console.log(this.getPersonsQuery);
     return this.apolloClient.watchQuery<any>({
       query: this.getPersonsQuery
+    }).valueChanges
+  }
+
+  getPersonWithDetails(personId: number) {
+    const getPersonWithDetailsQuery = gql`
+    query {
+      persons(where: {id: {eq: ${personId}}}) {
+        firstName
+        lastName
+        age
+        gender
+        customerSince
+        addresses {
+          streetName
+          houseNumber
+          postCode
+          city
+        }
+        pets {
+          name
+          animalType
+        }
+      }
+    }`
+
+    console.log(this.getPersonsQuery);
+    return this.apolloClient.watchQuery<any>({
+      query: getPersonWithDetailsQuery
     }).valueChanges
   }
 

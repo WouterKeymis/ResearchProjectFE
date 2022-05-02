@@ -1,7 +1,64 @@
-<h2>graphql</h2>
+<div class="container">
+  <h1><i>GraphQL demo page</i></h1>
 
-<ul>
-  <li *ngFor="let person of persons">
-    {{person.firstName}} {{person.lastName}} <span><button mat-button color="primary" (click)="showDetails(person.id)">details</button></span> <span *ngIf="person == selectedPerson">Age: {{selectedPerson.age}}</span>
-  </li>
-</ul>
+  <mat-list>
+    <mat-list-item *ngFor="let person of persons; last as last" (click)="showDetails(person.id)">
+        <mat-icon matListIcon>person</mat-icon>
+        <p matLine>{{person.firstName}} {{person.lastName}}</p>
+        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+    </mat-list-item>
+  </mat-list>
+
+  <div class="details-container" *ngIf="selectedPerson">
+    <mat-card class="mat-elevation-z8 card-container">
+      <mat-card-title>Details for {{selectedPerson.firstName}} {{selectedPerson.lastName}}</mat-card-title>
+      <mat-tab-group animationDuration="500ms">
+        <mat-tab label="Personalia">
+          <div class="tab-container">
+          <div class="row">
+            <div class="col-md-3 label">Name: </div>
+            <div class="col-md-5">{{selectedPerson.firstName}} {{selectedPerson.lastName}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 label">Age:</div>
+            <div class="col-md-5">{{selectedPerson.age}}</div>
+            <div class="col-md-2 label">Gender:</div>
+            <div class="col-md-2">{{selectedPerson.gender}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 label">Customer since: </div>
+            <div class="col-md-5">{{selectedPerson.customerSince | date : 'dd-MM-yyyy'}}</div>
+          </div>
+        </div>
+        </mat-tab>
+        <mat-tab label="Addresses">
+          <div class="tab-container address-container">
+              <div class="address-detail" *ngFor="let address of selectedPerson.addresses; last as last">
+                <div class="margins">
+                  <div class="row">
+                    <div class="col-md-2 label">Street: </div>
+                    <div class="col-md-6">{{address.streetName}}</div>
+                    <div class="col-md-2 label">Number:</div>
+                    <div class="col-md-2">{{address.houseNumber}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 label">City:</div>
+                    <div class="col-md-6">{{address.city}}</div>
+                    <div class="col-md-2 label">Postal:</div>
+                    <div class="col-md-2">{{address.postCode}}</div>
+                  </div>
+                </div>
+              <mat-divider *ngIf="!last"></mat-divider>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Pets">
+          <h3>Pets for <span  *ngIf="selectedPerson">{{selectedPerson.firstName}}</span></h3>
+          <div *ngFor="let pet of selectedPerson.pets">
+            <p>{{ pet.name }} : {{ pet.animalType }}
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+</div>

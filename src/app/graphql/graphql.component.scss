@@ -1,0 +1,48 @@
+.container {
+  width: 90%;
+  margin: 15px auto;
+}
+
+.overview-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-list .mat-list-item {
+  height: 35px; /* default is 72px */
+}
+
+.mat-list-item:hover{
+  background-color: rgb(229, 229, 229);
+  cursor: pointer;
+}
+
+.card-container{
+  margin-top: 25px;
+}
+
+.tab-container {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 2em;
+}
+
+.row {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+
+
+.label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.margins {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+a {
+  font-size: 18px;
+}

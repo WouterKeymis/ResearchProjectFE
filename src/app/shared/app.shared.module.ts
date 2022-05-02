@@ -25,6 +25,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatTabsModule} from '@angular/material/tabs'
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { MatNativeDateModule } from "@angular/material/core";
     MatExpansionModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTabsModule
   ]
 })
 

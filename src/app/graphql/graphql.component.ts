@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Person, PersonGraphQl } from '../_models/person';
+import { Address } from '../_models/address';
+import { Person, PersonGraphQl, PersonWithDetailsGraphQl } from '../_models/person';
+import { Pet } from '../_models/pet';
 import { GraphQlService } from '../_services/graphql.service';
 
 @Component({
@@ -10,19 +12,26 @@ import { GraphQlService } from '../_services/graphql.service';
 export class GraphqlComponent implements OnInit {
 
   persons: Array<PersonGraphQl>
-  selectedPerson: Person | null
+  selectedPerson: PersonWithDetailsGraphQl
+  addresses: Array<Address>
+  pets: Array<Pet>
+
+
 
   constructor(private graphQlService: GraphQlService) { }
 
   ngOnInit(): void {
     this.graphQlService.getAllPersons().subscribe(({data, loading}) => {
-      this.persons = data.person
+      this.persons = data.persons
       console.log(data);
     })
   }
 
   showDetails(personId: number) {
-
+    this.graphQlService.getPersonWithDetails(personId).subscribe(({data, loading}) => {
+      this.selectedPerson = data.persons[0];
+      console.log(data);
+    })
   }
 
 }
