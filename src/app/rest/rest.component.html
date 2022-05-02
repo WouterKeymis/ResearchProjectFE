@@ -53,9 +53,15 @@
           </div>
         </mat-tab>
         <mat-tab label="Pets">
-          <h3>Pets for <span  *ngIf="selectedPerson">{{selectedPerson.firstName}}</span></h3>
-          <div *ngFor="let pet of pets">
-            <p>{{ pet.name }} : {{ pet.animalType }}
+          <div class="pets-container">
+            <div class="pet-card mat-elevation-z2" *ngFor="let pet of pets">
+              <div class="image-div">
+                <span class="helper"></span><img class="round-image" src="../../assets/{{pet.animalType}}.svg">
+              </div>
+              <div class="pet-content">
+                <p><span class="label">Name: </span>{{pet.name}}</p>
+              </div>
+            </div>
           </div>
         </mat-tab>
       </mat-tab-group>
