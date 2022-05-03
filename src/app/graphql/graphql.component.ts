@@ -21,16 +21,18 @@ export class GraphqlComponent implements OnInit {
   constructor(private graphQlService: GraphQlService) { }
 
   ngOnInit(): void {
+    console.log("Overview GraphQL Query");
     this.graphQlService.getAllPersons().subscribe(({data, loading}) => {
-      this.persons = data.persons
-      console.log(data);
+      this.persons = data.persons;
+      console.log(data.persons);
     })
   }
 
   showDetails(personId: number) {
+    console.log("Details GraphQl Query");
     this.graphQlService.getPersonWithDetails(personId).subscribe(({data, loading}) => {
       this.selectedPerson = data.persons[0];
-      console.log(data);
+      console.log(data.persons[0]);
     })
   }
 

@@ -42,6 +42,9 @@ export class GraphQlService {
         pets {
           name
           animalType
+          veterinary {
+            fullName
+          }
         }
       }
     }`

@@ -37,7 +37,15 @@ export class RestComponent implements OnInit {
     this.restService.getPets(personId).subscribe(pets => {
       this.pets = pets;
       console.log("GET - api/Persons/Pets/personId");
-      console.log(pets)
+      console.log(this.pets)
+      this.pets.forEach(pet => {
+        this.restService.getVetForPet(pet.veterinaryId).subscribe(vet => {
+          pet.veterinary = vet;
+          console.log("GET - api/Vets/veterinaryId");
+          console.log(vet);
+        })
+      });
+
     })
   }
 

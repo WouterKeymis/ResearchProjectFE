@@ -46,3 +46,44 @@
 a {
   font-size: 18px;
 }
+
+.pets-container {
+  padding-top: 2em;
+  display: flex;
+  border-width: 2px;
+  border-radius: 5px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.pet-card {
+  width: 40%;
+  height: 40%;
+  margin: 10px;
+}
+
+.image-div {
+  display: flex;
+  justify-content: center;
+}
+
+
+.text-div {
+  padding: 1em;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.right-align {
+  text-align: right;
+}
+
+
+.round-image {
+  height: 50;
+  width: 50px;
+  margin: 0 auto;
+  //border-radius: 50%;
+}

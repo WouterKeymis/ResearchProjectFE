@@ -1,5 +1,6 @@
 import { Address } from "./address"
 import { Pet } from "./pet"
+import { Vet } from "./vet"
 
 export interface IPerson {
   id: number
@@ -37,4 +38,5 @@ export class PersonWithDetailsGraphQl {
   customerSince: Date
   addresses: Array<Address>
   pets: Array<Pet>
+  veterinary: Vet
 }

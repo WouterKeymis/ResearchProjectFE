@@ -57,37 +57,33 @@ a {
 }
 
 .pet-card {
-  width: 200px;
-  height: 100px;
+  width: 40%;
+  height: 40%;
   margin: 10px;
 }
 
 .image-div {
-  float: left;
-  white-space: nowrap;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
-.helper {
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
+
+.text-div {
+  padding: 1em;
 }
 
-img {
-  vertical-align: middle;
+.left-align {
+  text-align: left;
 }
 
-.pet-content {
-  padding: 2px 16px;
-  float: left;
+.right-align {
+  text-align: right;
 }
-
 
 
 .round-image {
-  height: 75;
-  width: 75px;
+  height: 50;
+  width: 50px;
   margin: 0 auto;
   //border-radius: 50%;
 }

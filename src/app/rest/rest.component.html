@@ -56,10 +56,17 @@
           <div class="pets-container">
             <div class="pet-card mat-elevation-z2" *ngFor="let pet of pets">
               <div class="image-div">
-                <span class="helper"></span><img class="round-image" src="../../assets/{{pet.animalType}}.svg">
+                <img class="round-image" src="../../assets/{{pet.animalType}}.svg">
               </div>
-              <div class="pet-content">
-                <p><span class="label">Name: </span>{{pet.name}}</p>
+              <div class="text-div">
+                <div class="row">
+                  <div class="col-md-4 label left-align">Name: </div>
+                  <div class="col-md-8 right-align">{{pet.name}}</div>
+                </div>
+                <div class="row" *ngIf="pet.veterinary">
+                  <div class="col-md-4 label left-align">Veterinary: </div>
+                  <div class="col-md-8 right-align">{{pet.veterinary.fullName}}</div>
+                </div>
               </div>
             </div>
           </div>

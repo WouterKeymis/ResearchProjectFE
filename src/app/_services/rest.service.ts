@@ -25,8 +25,8 @@ export class RestService {
     return this.httpClient.get<Pet[]>(this.baseUrl + 'Persons/Pets/' + personId)
   }
 
-  getVetForPet(vetId: number): Observable<Vet[]> {
-    return this.httpClient.get<Vet[]>(this.baseUrl + 'Vets/' + vetId)
+  getVetForPet(vetId: number): Observable<Vet> {
+    return this.httpClient.get<Vet>(this.baseUrl + 'Vets/' + vetId)
   }
 
 
